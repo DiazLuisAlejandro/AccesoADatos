@@ -1,15 +1,18 @@
 <?php
-/*Mayor de dos numeros */
 
-$edad=19;
+$numero=5;
 
-
-if($numero1>=18){
-    echo "Eres mayor de edad"; 
+if($numero>=1){
+    echo "Es un numero positivo"; 
 }
-$edad=17
-if($numero1<18){
-    echo "Eres menor de edad"; 
+echo "<br>";
+$numero=-1;
+if($numero<0){
+   echo "Es un numero negativo"; 
 }
-
+echo "<br>";
+$numero=0;
+if($numero==0){
+   echo "Es cero"; 
+}
 ?>
