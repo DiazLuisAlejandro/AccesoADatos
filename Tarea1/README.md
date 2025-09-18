@@ -13,7 +13,7 @@
 |[Ejercicio 7](#ejercicio-7)|✔️|1|
 |[Ejercicio 8](#ejercicio-8)|✔️|1|
 |[Ejercicio 9](#ejercicio-9)|✔️|1|
-|[Ejercicio 10](#ejercicio-10)|❌|0|
+|[Ejercicio 10](#ejercicio-10)|✔️|2|
 |[Ejercicio 11](#ejercicio-11)|❌|0|
 |[Ejercicio 12](#ejercicio-12)|❌|0|
 |[Ejercicio 13](#ejercicio-13)|❌|0|
@@ -277,78 +277,53 @@ while($num>0){
 
 ## [Ejercicio 10](#indice)
 
-Nota final
+Factorial
 
-Pide la nota de un alumno y muestra:
-
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Calcula el factorial de un número introducido (ejemplo: 5! = 120).
 
 
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
+$numInicio=5;
+$resultado=1;
+for($i=$numInicio; $i>0;$i--){
+    $resultado*=$i;
 }
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
-}
+echo "El $numInicio! es $resultado";
 ?>
+
 ```
 ### Resultado:
 
 ![](imagenes_tarea/ejercicio10.png)
 
 ## [Ejercicio 11](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Números primos
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Escribe un algoritmo que muestre los números primos entre 1 y 50.
 
 
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
+$numero=1;
+$contador=0;
+while($numero<=50){
+for($i=1; $i<=($numero);$i++){
+    if($numero%$i==0){
+        $contador++;
+    }
 }
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
+    if($contador==2){
+        echo "El $numero es primo";
+        echo "<br>";
+    }
+$contador=0;
+$numero++;
 }
 ?>
 ```
@@ -357,12 +332,10 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio11.png)
 
 ## [Ejercicio 12](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Fibonacci
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Genera los primeros 20 términos de la secuencia de Fibonacci.
 
 
 
