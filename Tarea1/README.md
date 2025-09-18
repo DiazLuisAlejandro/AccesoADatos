@@ -15,15 +15,15 @@
 |[Ejercicio 9](#ejercicio-9)|✔️|1|
 |[Ejercicio 10](#ejercicio-10)|✔️|1|
 |[Ejercicio 11](#ejercicio-11)|✔️|2|
-|[Ejercicio 12](#ejercicio-12)|❌|0|
-|[Ejercicio 13](#ejercicio-13)|❌|0|
-|[Ejercicio 14](#ejercicio-14)|❌|0|
-|[Ejercicio 15](#ejercicio-15)|❌|0|
-|[Ejercicio 16](#ejercicio-16)|❌|0|
-|[Ejercicio 17](#ejercicio-17)|❌|0|
-|[Ejercicio 18](#ejercicio-18)|❌|0|
-|[Ejercicio 19](#ejercicio-19)|❌|0|
-|[Ejercicio 20](#ejercicio-20)|❌|0|
+|[Ejercicio 12](#ejercicio-12)|✔️|3|
+|[Ejercicio 13](#ejercicio-13)|✔️|1|
+|[Ejercicio 14](#ejercicio-14)|✔️|1|
+|[Ejercicio 15](#ejercicio-15)|✔️|7|
+|[Ejercicio 16](#ejercicio-16)|✔️|3|
+|[Ejercicio 17](#ejercicio-17)|✔️|4|
+|[Ejercicio 18](#ejercicio-18)|✔️|2|
+|[Ejercicio 19](#ejercicio-19)|✔️|5|
+|[Ejercicio 20](#ejercicio-20)|✔️|2|
 
 
 ## [Ejercicio 1](#indice)
@@ -342,26 +342,17 @@ Genera los primeros 20 términos de la secuencia de Fibonacci.
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
-}
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
+$numero1=0;
+$numero2=1;
+$numerosup=$numero1;
+$contador=0;
+while($contador<18){
+    $resultado=$numero1+$numero2;
+    $numero1=$numero2;
+    $numero2=$resultado;
+    $numerosup=$numero1;
+    echo "$resultado<br>";
+    $contador++;
 }
 ?>
 ```
@@ -370,12 +361,10 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio12.png)
 
 ## [Ejercicio 13](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Múltiplos de un número
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Pide un número n y muestra sus múltiplos hasta 100.
 
 
 
@@ -383,26 +372,13 @@ Pide la nota de un alumno y muestra:
 ```
 <?php
 
-$nota=4;
+$numero1 = 2;
 
-if($nota<5){
-    echo "Suspenso"; 
+for($i = 1; $i <= 100; $i++) {
+    $multiplo = $numero1 * $i;
+    echo "$multiplo <br>";
 }
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
-}
+
 ?>
 ```
 ### Resultado:
@@ -410,39 +386,27 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio13.png)
 
 ## [Ejercicio 14](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Suma de pares e impares
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
-
+Calcula la suma de los números pares e impares entre 1 y 100 por separado.
 
 
 ### Codigo:
 ```
 <?php
+$par=0;
+$impar=0;
+for ($i=1; $i <=100 ; $i++) { 
+    if ($i%2==0) {
+        $par+=$i;
+    } else {
+        $impar+=$i;
+    }
+}  
+echo "La suma de los pares es: $par <br>";
+echo "La suma de los impares es: $impar";
 
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
-}
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
-}
 ?>
 ```
 ### Resultado:
@@ -450,39 +414,33 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio14.png)
 
 ## [Ejercicio 15](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Adivinar número
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Genera un número aleatorio entre 1 y 20.
+Pide al usuario que lo adivine y usa un bucle con condicionales para dar pistas: "Mayor" o "Menor".
 
 
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
+$numero1=rand(1, 20);
+$numero2=rand(1, 20);
+$numeroAlmacenado1=1;
+$numeroAlmacenado2=20;
+while ($numero1!=$numero2) {
+    if ($numero1 > $numero2) {
+        echo "Mayor <br>";
+        $numero2 = rand($numeroAlmacenado1, $numero2);
+    }elseif($numero1 < $numero2) {
+        echo "Menor <br>";
+        $numero2 = rand($numero2, $numeroAlmacenado2);
+    }
+    $numeroAlmacenado1=$numero2+1;
+    $numeroAlmacenado2=$numero2-1;
 }
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
-}
+echo "¡Has acertado! El número es $numero1";
 ?>
 ```
 ### Resultado:
@@ -490,38 +448,38 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio15.png)
 
 ## [Ejercicio 16](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Número perfecto
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
-
-
+Comprueba si un número es perfecto (la suma de sus divisores propios es igual al número).
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
+$numero1 = 33550336;
+$resultado = 0;
+for($i = 1; $i <= $numero1/2; $i++) {
+    if($numero1 % $i == 0) {
+        $resultado += $i;
+    }
+}
+if($resultado == $numero1) {
+    echo "$numero1 es perfecto";
+} else {
+    echo "$numero1 no es perfecto";
 }
 echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
+$numero1 = 33556;
+$resultado = 0;
+for($i = 1; $i <= $numero1/2; $i++) {
+    if($numero1 % $i == 0) {
+        $resultado += $i;
+    }
 }
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
+if($resultado == $numero1) {
+    echo "$numero1 es perfecto";
+} else {
+    echo "$numero1 no es perfecto";
 }
 ?>
 ```
@@ -530,39 +488,23 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio16.png)
 
 ## [Ejercicio 17](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Invertir número
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Escribe un algoritmo que invierta los dígitos de un número
+(ejemplo: 123 → 321).
 
 
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
-}
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
-}
+$int = 43;
+echo "Normal: $int <br>";
+$numString = (string)$int;
+$invertidoString = strrev($numString);
+$invertidoInt = (int)$invertidoString;
+echo "Invertido: $invertidoInt";
 ?>
 ```
 ### Resultado:
@@ -570,38 +512,21 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio17.png)
 
 ## [Ejercicio 18](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Palíndromo
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Comprueba si una palabra almacenada en una variable es palíndroma.
 
 
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
-}
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
+$palindromo = "alomomola";
+if ($palindromo == strrev($palindromo)) {
+    echo "La palabra '$palindromo' es un palíndromo.";
+} else {
+    echo "La palabra '$palindromo' no es un palíndromo.";
 }
 ?>
 ```
@@ -611,39 +536,29 @@ if($nota>8 & $nota<=10){
 
 ## [Ejercicio 19](#indice)
 
-Nota final
+Máximo común divisor (MCD)
 
-Pide la nota de un alumno y muestra:
-
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
-
+Escribe un algoritmo que calcule el MCD de dos números.
 
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
+$numero1 = 6;
+$numero2 = 9;
+if ($numero1 > $numero2) {
+    $mayor = $numero1;
+    $menor = $numero2;
+} else {
+    $mayor = $numero2;
+    $menor = $numero1;
 }
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
+while ($menor != 0) {
+    $resto = $mayor % $menor;
+    $mayor = $menor;
+    $menor = $resto;
 }
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
-}
+echo "El MCD de $numero1 y $numero2 es: $mayor";
 ?>
 ```
 ### Resultado:
@@ -651,38 +566,25 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio19.png)
 
 ## [Ejercicio 20](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Triángulo de asteriscos
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Muestra en pantalla un triángulo de altura n usando *.
+Ejemplo con n = 5:
 
 
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
-}
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
+$numero1 = 5;
+$numero2=1;
+while ($numero2 <=$numero1) {
+    for ($i=0; $i < $numero2; $i++) { 
+        echo "*";
+    }
+    echo "<br>";
+    $numero2++;
 }
 ?>
 ```
