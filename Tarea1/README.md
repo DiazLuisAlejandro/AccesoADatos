@@ -13,8 +13,8 @@
 |[Ejercicio 7](#ejercicio-7)|✔️|1|
 |[Ejercicio 8](#ejercicio-8)|✔️|1|
 |[Ejercicio 9](#ejercicio-9)|✔️|1|
-|[Ejercicio 10](#ejercicio-10)|✔️|2|
-|[Ejercicio 11](#ejercicio-11)|❌|0|
+|[Ejercicio 10](#ejercicio-10)|✔️|1|
+|[Ejercicio 11](#ejercicio-11)|✔️|2|
 |[Ejercicio 12](#ejercicio-12)|❌|0|
 |[Ejercicio 13](#ejercicio-13)|❌|0|
 |[Ejercicio 14](#ejercicio-14)|❌|0|
