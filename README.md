@@ -10,9 +10,9 @@
 |[Ejercicio 4](#ejercicio-4)|✔️|1|
 |[Ejercicio 5](#ejercicio-5)|✔️|1|
 |[Ejercicio 6](#ejercicio-6)|✔️|1|
-|[Ejercicio 7](#ejercicio-7)|❌|0|
-|[Ejercicio 8](#ejercicio-8)|❌|0|
-|[Ejercicio 9](#ejercicio-9)|❌|0|
+|[Ejercicio 7](#ejercicio-7)|✔️|1|
+|[Ejercicio 8](#ejercicio-8)|✔️|1|
+|[Ejercicio 9](#ejercicio-9)|✔️|1|
 |[Ejercicio 10](#ejercicio-10)|❌|0|
 |[Ejercicio 11](#ejercicio-11)|❌|0|
 |[Ejercicio 12](#ejercicio-12)|❌|0|
@@ -35,7 +35,6 @@ Pide dos números y muestra cuál es mayor o si son iguales.
 <?php
 $numero1=10;
 $numero2=8;
-
 if($numero1>$numero2){
     echo "$numero1 es mayor que $numero2"; 
 }
@@ -61,11 +60,7 @@ Pide la edad de una persona y muestra:
 
 ```
 <?php
-/*Mayor de dos numeros */
-
 $edad=19;
-
-
 if($edad>=18){
     echo "Eres mayor de edad"; 
 }
@@ -74,7 +69,6 @@ $edad=17;
 if($edad<18){
     echo "Eres menor de edad"; 
 }
-
 ?>
 ```
 ### Resultado:
@@ -126,9 +120,7 @@ Pide la nota de un alumno y muestra:
 ### Codigo:
 ```
 <?php
-
 $nota=4;
-
 if($nota<5){
     echo "Suspenso"; 
 }
@@ -164,9 +156,7 @@ Muestra los números del 1 al 100 en pantalla.
 ### Codigo:
 ```
 <?php
-
 $numero=1;
-
 while ($numero <= 100) {
     echo $numero . "<br>";
     $numero++;
@@ -188,7 +178,6 @@ Calcula la suma de los números del 1 al 50 usando un bucle.
 ### Codigo:
 ```
 <?php
-
 $contador=1;
 $numero=0;
 while ($contador <= 50) {
@@ -203,39 +192,30 @@ echo "La suma de los números del 1 al 50 es: $numero";
 ![](imagenes_tarea/ejercicio6.png)
 
 ## [Ejercicio 7](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Tabla de multiplicar
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
-
+Pide un número y genera su tabla de multiplicar del 1 al 10.
 
 
 ### Codigo:
 ```
 <?php
+$multiplo=1;
+$multiplicador=1;
+while ($multiplo<=10){
+    echo "Tabla del $multiplo";
+    echo"<br>";
+    while($multiplicador<=10){
+        $resultado=$multiplicador*$multiplo;
+        echo "$multiplo * $multiplicador = $resultado";
+        echo"<br>";
+        $multiplicador++;
+    }
+    $multiplicador=1;
+    $multiplo++;
+}
 
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
-}
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
-}
 ?>
 ```
 ### Resultado:
@@ -243,38 +223,23 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio7.png)
 
 ## [Ejercicio 8](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Números pares
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Muestra todos los números pares entre 1 y 50.
 
 
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
-}
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
+$numero=1;
+while ($numero<=50){
+    if($numero%2==0){
+        echo "Este numero es par: $numero";
+        echo "<br>";
+    }
+    $numero++;
 }
 ?>
 ```
@@ -283,40 +248,28 @@ if($nota>8 & $nota<=10){
 ![](imagenes_tarea/ejercicio8.png)
 
 ## [Ejercicio 9](#indice)
-Nota final
 
-Pide la nota de un alumno y muestra:
+Cuenta atrás
 
-    "Suspenso" (< 5), "Aprobado" (5–6), 
-    "Notable" (7–8), "Sobresaliente" (9–10).
+Haz un bucle que cuente de 10 a 1 y luego muestre 
 
+"¡Fin!".
 
 
 ### Codigo:
 ```
 <?php
-
-$nota=4;
-
-if($nota<5){
-    echo "Suspenso"; 
-}
-echo "<br>";
-$nota=5;
-if($nota>=5 & $nota<=6){
-   echo "Aprobado"; 
-}
-echo "<br>";
-$nota=7;
-if($nota>6 & $nota<=8){
-   echo "Notable"; 
-}
-echo "<br>";
-$nota=10;
-if($nota>8 & $nota<=10){
-   echo "Sobresaliente"; 
+$num=10;
+while($num>0){
+    echo "$num";
+    echo "<br>";
+    if($num==1){
+    echo "¡Fin!";
+    }
+    $num--;
 }
 ?>
+
 ```
 ### Resultado:
 

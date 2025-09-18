@@ -1,10 +1,14 @@
 <?php
 
-$contador=1;
-$numero=0;
-while ($contador <= 50) {
-    $numero += $contador;
-    $contador++;
+$num=10;
+while($num>0){
+    echo "$num";
+    echo "<br>";
+    if($num==1){
+    echo "¡Fin!";
+    }
+
+    $num--;
 }
-echo "La suma de los números del 1 al 50 es: $numero";
+
 ?>
