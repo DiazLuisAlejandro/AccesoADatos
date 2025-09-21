@@ -1,29 +1,16 @@
 <?php
-function esCapicua(int $n,int $m):void {
-    $arr=[];
-    $contador=0;
-    $string="";
-    while ($contador <$n) {
-    for ($i=0; $i < $n; $i++) { 
-        if($i==$n/$m){
-            array_push($arr,"*");
-        }else{
-            array_push($arr," ");
-
+function secuenciaCollatz(int $n): array{
+    $resultado=[];
+    while ($n!=1) {
+        $resultado[]=$n;
+        if ($n%2==0) {
+            $n=$n/2;
+        } else {
+            $n=3*$n+1;
         }
     }
-
-
-    foreach($arr as $posarr){
-        $string=strrev((string)$posarr).;
-        echo $posarr;
-        echo $string;
-    }
-    echo "<br>";
-    $contador++;
+    $resultado[] = 1;
+    return $resultado;
 }
-}
-
-esCapicua(4,2)
-
+print_r(secuenciaCollatz(10));
 ?>
