@@ -79,3 +79,25 @@ if(!file_exists("resultado.csv")){
 }
 ?>
 ```
+
+## Ejercicio 2
+
+Dado un fichero texto.txt, contar cuántas palabras hay en total y cuántas veces aparece cada palabra.
+
+La salida se debe guardar en estadisticas.csv con el formato:
+
+palabra,frecuencia
+
+Reglas:
+
+Ignorar mayúsculas/minúsculas (ejemplo: PHP y php cuentan como la misma palabra).
+
+Ignorar signos de puntuación.
+
+
+### Codigo
+
+```php
+
+
+```
