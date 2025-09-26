@@ -18,7 +18,7 @@ if(!file_exists("resultado.csv")){
                 fwrite($file2,$line.",".($arr[0]*$arr[1])."\n");
             }
             if($arr[2]=="division"){
-                if($arr[0]!=0 && $arr[1]!=0){
+                if($arr[1]!=0){
                     fwrite($file2,$line.",".($arr[0]/$arr[1])."\n");
                 }else{
                     fwrite($file2,$line.",ERROR\n");
@@ -47,7 +47,7 @@ if(!file_exists("resultado.csv")){
                 fwrite($file2,$line.",".($arr[0]*$arr[1])."\n");
             }
             if($arr[2]=="division"){
-                if($arr[0]!=0 && $arr[1]!=0){
+                if($arr[1]!=0){
                     fwrite($file2,$line.",".($arr[0]/$arr[1])."\n");
                 }else{
                     fwrite($file2,$line.",ERROR\n");
