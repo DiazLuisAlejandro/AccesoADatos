@@ -31,7 +31,7 @@ Trabajo con fichero en php
 Crea un fichero datos.txt con el texto "Hola Mundo desde PHP" y, a continuación, léelo y muestra su contenido por pantalla.
 
 ### Codigo:
-```
+```php
 <?php
 if (!file_exists("datos.txt")) {
     $file = fopen("datos.txt", "w");
@@ -51,7 +51,7 @@ Almacena en numeros.txt los números del 1 al 10 (cada número en una línea). L
 
 ### Codigo:
 
-```
+```php
 <?php
 
 if (!file_exists("numeros.txt")) {
@@ -73,10 +73,17 @@ echo file_get_contents("numeros.txt")
 Escribe un texto en texto.txt, luego haz que tu programa cuente cuántas palabras contiene ese archivo.
 
 ### Codigo:
-```
+```php
 <?php
 
+if (!file_exists("texto.txt")) {
+    $file = fopen("texto.txt", "w");
+    fwrite($file, "PHP es muy divertido y potente.");
+    fclose($file);
+}
+    $num=str_word_count(file_get_contents("texto.txt"));
 
+    echo "El archivo tiene $num palabras. \n";
 ?>
 ```
 
@@ -84,11 +91,22 @@ Escribe un texto en texto.txt, luego haz que tu programa cuente cuántas palabra
 
 ## [Ejercicio 4](#indice)
 
-
+Guarda un array de nombres en nombres.txt (uno por línea). Después, léelo y muéstralos en lista numerada.
 
 ### Codigo:
-```
+```php
 <?php
+
+if (!file_exists("nombres.txt")) {
+    $file = fopen("nombres.txt", "w");
+    $arrat = ["Ana", "Luis", "Pedro", "María", "Marta", "Alejandro"];
+    foreach ($arrat as $nombre) {
+        fwrite($file, $nombre . PHP_EOL);
+    }
+    fclose($file);
+}
+
+echo file_get_contents("nombres.txt");
 
 ?>
 ```
