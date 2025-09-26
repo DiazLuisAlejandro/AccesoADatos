@@ -98,6 +98,9 @@ Ignorar signos de puntuación.
 ### Codigo
 
 ```php
+<?php
 
 
+
+?>
 ```
