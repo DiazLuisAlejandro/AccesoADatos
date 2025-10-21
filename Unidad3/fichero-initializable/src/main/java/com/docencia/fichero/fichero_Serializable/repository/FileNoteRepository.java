@@ -1,6 +1,5 @@
 package com.docencia.fichero.fichero_Serializable.repository;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -23,7 +22,7 @@ public class FileNoteRepository implements INoteRepository {
     }
 
     private void verificarFichero() throws IOException{
-        File file=new File(nameFile);
+
         URL resource;
         
         resource=getClass().getClassLoader().getResource(nameFile);
