@@ -13,7 +13,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import com.docencia.fichero.fichero_Serializable.model.Note;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 
 public abstract class FileNoteAbstractRepository implements INoteRepository{
@@ -38,7 +37,7 @@ public abstract class FileNoteAbstractRepository implements INoteRepository{
     }
 
     private List<Note> readAllInternal() {
-        mapper=new XmlMapper();
+        mapper=new ObjectMapper();
         try {
             if (!Files.exists(path) || Files.size(path) == 0) return new ArrayList<>();
             Note[] store = mapper.readValue(Files.readAllBytes(path), Note[].class);
