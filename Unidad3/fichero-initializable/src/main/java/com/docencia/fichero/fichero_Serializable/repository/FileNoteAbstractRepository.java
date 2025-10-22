@@ -1,7 +1,6 @@
 package com.docencia.fichero.fichero_Serializable.repository;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,36 +12,40 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import com.docencia.fichero.fichero_Serializable.model.Note;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-public class FileNoteRepository implements INoteRepository {
-    
+
+public abstract class FileNoteAbstractRepository implements INoteRepository{
+
     private String nameFile;
     private Path path;
+    ObjectMapper mapper;
     private final ReentrantReadWriteLock lock=new ReentrantReadWriteLock();
 
-
-    public FileNoteRepository(){
-        this.nameFile="nore-repository.txt";
-        try {
-            this.path=verificarFichero();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
+    public FileNoteAbstractRepository(String nameFile,ObjectMapper mapper){
+        this.nameFile=nameFile;
+        path=verificarFichero();
+        this.mapper=mapper;
     }
 
-    private Path verificarFichero() throws IOException{
+    private Path verificarFichero(){
 
         URL resource;
         
         resource=getClass().getClassLoader().getResource(nameFile);
-        if (resource==null) {
-            throw new IOException("El fichero no existe: "+nameFile);
-
-        }
-
         return path=Paths.get(resource.getPath());
+    }
+
+    private List<Note> readAllInternal() {
+        mapper=new XmlMapper();
+        try {
+            if (!Files.exists(path) || Files.size(path) == 0) return new ArrayList<>();
+            Note[] store = mapper.readValue(Files.readAllBytes(path), Note[].class);
+            return new ArrayList<>(Arrays.asList(store));
+        } catch (IOException e) {
+            throw new RuntimeException("Error leyendo XML", e);
+        }
     }
 
     @Override
@@ -74,18 +77,4 @@ public class FileNoteRepository implements INoteRepository {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
-
-    private List<Note> readAllInternal() {
-        XmlMapper xmlMapper=new XmlMapper();
-        try {
-            if (!Files.exists(path) || Files.size(path) == 0) return new ArrayList<>();
-            Note[] store = xmlMapper.readValue(Files.readAllBytes(path), Note[].class);
-            return new ArrayList<>(Arrays.asList(store));
-        } catch (IOException e) {
-            throw new RuntimeException("Error leyendo XML", e);
-        }
-    }
-
-    
-    
 }
