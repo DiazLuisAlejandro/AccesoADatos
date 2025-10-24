@@ -22,6 +22,8 @@ public abstract class FileNoteAbstractRepository implements INoteRepository{
     ObjectMapper mapper;
     private final ReentrantReadWriteLock lock=new ReentrantReadWriteLock();
 
+    public FileNoteAbstractRepository(){}
+
     public FileNoteAbstractRepository(String nameFile,ObjectMapper mapper){
         this.nameFile=nameFile;
         path=verificarFichero();
@@ -54,9 +56,15 @@ public abstract class FileNoteAbstractRepository implements INoteRepository{
     }
     @Override
     public Note findById(String id) {
-        // TODO Auto-generated method stub
+
         throw new UnsupportedOperationException("Unimplemented method 'findById'");
     }
+
+     @Override
+    public Note find(Note note) {
+        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+    }
+
     @Override
     public List<Note> findAll() {
         lock.readLock().lock();

@@ -9,4 +9,5 @@ public class FileNoteJsonRepository extends FileNoteAbstractRepository{
     public FileNoteJsonRepository(){
         super(nameFile,mapper);
     }
+   
 }
