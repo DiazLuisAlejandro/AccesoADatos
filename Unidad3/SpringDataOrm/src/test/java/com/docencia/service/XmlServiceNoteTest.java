@@ -1,9 +1,11 @@
 package com.docencia.service;
 
 import org.junit.jupiter.api.Test;
+
+import com.docencia.model.Note;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import com.docencia.files.model.Note;
 
 public class XmlServiceNoteTest {
     XmlServiceNote xmlServiceNote;

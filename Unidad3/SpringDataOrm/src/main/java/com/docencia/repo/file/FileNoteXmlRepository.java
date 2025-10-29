@@ -1,4 +1,4 @@
-package com.docencia.repo;
+package com.docencia.repo.file;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 

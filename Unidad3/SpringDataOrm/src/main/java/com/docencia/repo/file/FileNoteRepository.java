@@ -1,4 +1,4 @@
-package com.docencia.repo;
+package com.docencia.repo.file;
 
 import java.io.IOException;
 import java.net.URL;
@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import com.docencia.files.model.Note;
+import com.docencia.model.Note;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 public class FileNoteRepository extends FileNoteAbstractRepository {

@@ -2,7 +2,7 @@ package com.docencia.repo;
 
 import java.util.List;
 
-import com.docencia.files.model.Note;
+import com.docencia.model.Note;
 
 public interface INoteRepository {
     public boolean exists(String id);

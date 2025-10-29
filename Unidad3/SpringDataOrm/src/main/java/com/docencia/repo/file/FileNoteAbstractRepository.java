@@ -1,4 +1,4 @@
-package com.docencia.repo;
+package com.docencia.repo.file;
 
 import java.io.IOException;
 import java.net.URL;
@@ -14,7 +14,8 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-import com.docencia.files.model.Note;
+import com.docencia.model.Note;
+import com.docencia.repo.INoteRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.micrometer.common.util.StringUtils;

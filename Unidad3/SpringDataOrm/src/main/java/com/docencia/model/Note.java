@@ -1,5 +1,9 @@
-package com.docencia.files.model;
+package com.docencia.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import java.util.Objects;
@@ -9,16 +13,23 @@ import java.util.Objects;
  * @author jpexposito
  * @version 1.0.0
  */
+@Entity
+@Table(name="notes")
 public class Note {
-
+    
+    @Id
+    @Column(name = "id", length = 64)
     @NotBlank
     private String id;
 
     @NotBlank
     @Size(max = 200)
+    @Column(name = "title")
     private String title;
 
+    
     @NotBlank
+    @Column(name="content", nullable = false)
     private String content;
 
     /**

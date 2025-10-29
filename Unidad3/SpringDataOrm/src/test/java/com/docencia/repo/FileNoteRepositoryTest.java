@@ -4,7 +4,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import com.docencia.files.model.Note;
+
+import com.docencia.model.Note;
+import com.docencia.repo.file.FileNoteRepository;
 
 class FileNoteRepositoryTest {
     FileNoteRepository fileNoteRepository;

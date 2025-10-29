@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.docencia.files.model.Note;
+import com.docencia.model.Note;
 import com.docencia.repo.INoteRepository;
 
 public abstract class ServiceNoteAbstract implements IServiceNote {
