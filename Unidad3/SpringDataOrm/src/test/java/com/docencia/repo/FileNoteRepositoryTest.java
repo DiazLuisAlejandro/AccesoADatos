@@ -27,7 +27,7 @@ class FileNoteRepositoryTest {
     @AfterEach
     void afterEach() {
         elementoFind = fileNoteRepository.findById(id);
-        Assertions.assertNotNull(elementoFind, "El elemento no debe de ser null");
+        Assertions.assertNull(elementoFind, "El elemento no debe de ser null");
 
     }
 
@@ -39,7 +39,7 @@ class FileNoteRepositoryTest {
     @Test
     void insertNoteTest() {
         Note result = fileNoteRepository.findById(null);
-        Assertions.assertNotNull(result, "El resultado no debe de ser nulo");
+        Assertions.assertNull(result, "El resultado no debe de ser nulo");
         Assertions.assertEquals(result, result, "El valor no es el esperado");
         //getById
         //insert

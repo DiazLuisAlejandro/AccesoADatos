@@ -20,7 +20,7 @@ public class FileNoteRepository extends FileNoteAbstractRepository {
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
     public FileNoteRepository() {
-        this.nameFile = "note-repository.txt";
+        this.nameFile = "note-repository.xml";
         try {
             path = verificarFichero();
         } catch (IOException e) {
