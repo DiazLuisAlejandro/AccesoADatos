@@ -1,5 +1,6 @@
 package com.docencia.model;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -28,11 +29,12 @@ public class Hotel {
         this.id = id;
     }
 
-    public Hotel(String id, String name, String address) {
+     public Hotel(String id, String name, String address, List<Room> rooms) {
         this.id = id;
         this.name = name;
         this.address = address;
     }
+
 
     public String getId() {
         return id;

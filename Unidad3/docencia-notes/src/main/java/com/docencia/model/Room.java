@@ -5,6 +5,7 @@ import java.util.Objects;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
@@ -26,7 +27,7 @@ public class Room {
     private float pricePerNight;
 
     @ManyToOne
-    @Column(name="hotel_id")
+    @JoinColumn(name="hotel_id")
     private String hotelId;
 
     public Room() {}
