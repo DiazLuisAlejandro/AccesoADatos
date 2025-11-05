@@ -5,19 +5,21 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
 import com.docencia.model.Hotel;
+import com.docencia.model.Note;
 
 @SpringBootTest
 @ActiveProfiles("test")
 public class HotelJpaRepositoryTest {
 
 
-     @Autowired
+    @Autowired
     private IHotelRepository hotelRepository;
 
     private Hotel baseHotel; 
@@ -51,12 +53,27 @@ public class HotelJpaRepositoryTest {
     }
 
     @Test
-    void testExists() {
+    @Transactional
+    void createReadFindByNameTest() {
+        String id = baseHotel.getId();
+
+        Hotel leida = hotelRepository.findById(id);
+        assertThat(leida).isNotNull();
+        assertThat(leida.getName()).isEqualTo("Hotel prueba");
+        assertThat(leida.getAddress()).isEqualTo("direccion prueba");
+
+        Hotel buscadaPorNombre = hotelRepository.find(leida);
+        assertThat(buscadaPorNombre).isNotNull();
+        assertThat(buscadaPorNombre.getId()).isEqualTo(id);
+    }
+
+    @Test
+    void testExistsTest() {
 
     }
 
     @Test
-    void testFind() {
+    void testFindTest() {
 
     }
 

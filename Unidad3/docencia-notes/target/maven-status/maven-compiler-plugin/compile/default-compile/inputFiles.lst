@@ -1,5 +1,12 @@
-/Users/jpexposito/Downloads/docencia-notes/src/main/java/com/docencia/model/Note.java
-/Users/jpexposito/Downloads/docencia-notes/src/main/java/com/docencia/Application.java
-/Users/jpexposito/Downloads/docencia-notes/src/main/java/com/docencia/repo/jpa/INoteJpaRepository.java
-/Users/jpexposito/Downloads/docencia-notes/src/main/java/com/docencia/repo/jpa/NoteJpaRepository.java
-/Users/jpexposito/Downloads/docencia-notes/src/main/java/com/docencia/repo/INoteRepository.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/model/Hotel.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/repo/IHotelRepository.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/model/Room.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/model/Note.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/repo/jpa/NoteJpaRepository.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/repo/jpa/INoteJpaRepository.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/repo/jpa/HotelJpaRepository.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/Application.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/model/Booking.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/model/Guest.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/repo/jpa/IHotelJpaRepository.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/repo/INoteRepository.java
