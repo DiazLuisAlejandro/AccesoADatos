@@ -26,6 +26,7 @@ public class HotelJpaRepositoryTest {
     @Transactional
     void beforeEach() {
         Hotel h = new Hotel();
+        h.setId("H2");
         h.setName("Hotel prueba");
         h.setAddress("direccion prueba");
 
@@ -38,8 +39,15 @@ public class HotelJpaRepositoryTest {
     
 
     @Test
+    @Transactional
     void testDelete() {
+        String id = baseHotel.getId();
 
+        boolean borrada = hotelRepository.delete(id);
+
+        assertThat(borrada).isTrue();
+        assertThat(hotelRepository.exists(id)).isFalse();
+        assertThat(hotelRepository.findById(id)).isNull();
     }
 
     @Test
