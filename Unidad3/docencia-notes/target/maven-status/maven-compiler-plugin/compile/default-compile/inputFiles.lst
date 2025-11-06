@@ -4,5 +4,6 @@
 /home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/repo/jpa/HotelJpaRepository.java
 /home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/Application.java
 /home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/model/Booking.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/repo/IRoomRepository.java
 /home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/model/Guest.java
 /home/dam/Escritorio/AccesoADatos/Unidad3/docencia-notes/src/main/java/com/docencia/repo/jpa/IHotelJpaRepository.java

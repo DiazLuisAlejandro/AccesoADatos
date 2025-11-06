@@ -5,4 +5,5 @@ com/docencia/model/Guest.class
 com/docencia/model/Hotel.class
 com/docencia/Application.class
 com/docencia/model/Booking.class
+com/docencia/repo/IRoomRepository.class
 com/docencia/repo/jpa/IHotelJpaRepository.class

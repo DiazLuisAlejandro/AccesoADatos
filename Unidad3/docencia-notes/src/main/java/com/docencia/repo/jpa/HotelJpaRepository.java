@@ -1,6 +1,7 @@
 package com.docencia.repo.jpa;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.docencia.model.Hotel;
 import com.docencia.repo.IHotelRepository;
@@ -37,6 +38,9 @@ public class HotelJpaRepository implements IHotelRepository{
 
     @Override
     public Hotel save(Hotel hotel) {
+        if(hotel.getId()==null|| hotel.getId().isBlank()){
+            hotel.setId(UUID.randomUUID().toString());
+        }
         return repository.save(hotel);
     }
 

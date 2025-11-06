@@ -1,33 +1,36 @@
 package com.docencia.repo;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 
 import com.docencia.model.Hotel;
+import com.docencia.repo.jpa.HotelJpaRepository;
+import com.docencia.repo.jpa.IHotelJpaRepository;
 
-@SpringBootTest
-@ActiveProfiles("test")
+
 public class HotelJpaRepositoryTest {
 
 
     @Autowired
-    private IHotelRepository hotelRepository;
+    private HotelJpaRepository hotelRepository=new HotelJpaRepository(this.iHotelJpaRepository);
+
+    private IHotelJpaRepository iHotelJpaRepository;
 
     private Hotel baseHotel; 
     
     @BeforeEach
-    @Transactional
+    
     void beforeEach() {
         Hotel h = new Hotel();
-        h.setId("H1");
         h.setName("Hotel prueba");
         h.setAddress("direccion prueba");
 
@@ -40,7 +43,7 @@ public class HotelJpaRepositoryTest {
     
 
     @Test
-    @Transactional
+
     void testDelete() {
         String id = baseHotel.getId();
 
@@ -52,7 +55,7 @@ public class HotelJpaRepositoryTest {
     }
 
     @Test
-    @Transactional
+
     void createReadFindByNameTest() {
         String id = baseHotel.getId();
 
@@ -68,7 +71,7 @@ public class HotelJpaRepositoryTest {
 
     @Test
     void testExistsTest() {
-
+        assertEquals(hotelRepository, baseHotel);
     }
 
     @Test
