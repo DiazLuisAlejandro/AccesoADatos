@@ -12,7 +12,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 import com.docencia.model.Hotel;
-import com.docencia.model.Note;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -28,7 +27,7 @@ public class HotelJpaRepositoryTest {
     @Transactional
     void beforeEach() {
         Hotel h = new Hotel();
-        h.setId("H2");
+        h.setId("H1");
         h.setName("Hotel prueba");
         h.setAddress("direccion prueba");
 

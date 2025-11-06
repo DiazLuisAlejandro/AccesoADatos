@@ -1,6 +1,7 @@
 package com.docencia.model;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
@@ -19,10 +20,10 @@ public class Booking {
     private String id;
 
     @Column(name="check_in")
-    private String checkIn;
+    private LocalDate checkIn;
 
     @Column(name="check_out")
-    private String checkOut;
+    private LocalDate checkOut;
 
     @OneToOne
     @JoinColumn(name="guest_id")
@@ -41,7 +42,7 @@ public class Booking {
         this.id = id;
     }
 
-    public Booking(String id, String checkIn, String checkOut, String guestId, String roomId) {
+    public Booking(String id, LocalDate checkIn, LocalDate checkOut, String guestId, String roomId) {
         this.id = id;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -57,20 +58,20 @@ public class Booking {
         this.id = id;
     }
 
-    public String getCheckIn() {
+    public LocalDate getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(String checkIn) {
-        this.checkIn = checkIn;
+    public void Date(String checkIn) {
+        this.checkIn = LocalDate.parse(checkIn,DateTimeFormatter.ofPattern("yyyy-dd-mm"));
     }
 
-    public String getCheckOut() {
+    public LocalDate getCheckOut() {
         return checkOut;
     }
 
     public void setCheckOut(String checkOut) {
-        this.checkOut = checkOut;
+        this.checkOut = LocalDate.parse(checkOut,DateTimeFormatter.ofPattern("yyyy-dd-mm"));
     }
 
     public String getGuestId() {

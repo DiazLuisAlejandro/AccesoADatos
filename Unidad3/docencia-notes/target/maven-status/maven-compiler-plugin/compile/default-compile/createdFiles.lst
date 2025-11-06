@@ -1,5 +1,8 @@
-com/docencia/repo/jpa/INoteJpaRepository.class
-com/docencia/repo/INoteRepository.class
-com/docencia/repo/jpa/NoteJpaRepository.class
-com/docencia/model/Note.class
+com/docencia/repo/IHotelRepository.class
+com/docencia/repo/jpa/HotelJpaRepository.class
+com/docencia/model/Room.class
+com/docencia/model/Guest.class
+com/docencia/model/Hotel.class
 com/docencia/Application.class
+com/docencia/model/Booking.class
+com/docencia/repo/jpa/IHotelJpaRepository.class
