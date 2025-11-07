@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 public class Room {
 
     @Id
+    @ManyToOne
     @Column(name = "id")
     private String id;
 

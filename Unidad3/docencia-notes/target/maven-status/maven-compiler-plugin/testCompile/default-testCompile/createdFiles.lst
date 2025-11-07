@@ -1,1 +1,4 @@
 com/docencia/repo/HotelJpaRepositoryTest.class
+com/docencia/repo/BookingJpaRepositoryTest.class
+com/docencia/repo/RoomJpaRepositoryTest.class
+com/docencia/repo/GuestJpaRepositoryTest.class

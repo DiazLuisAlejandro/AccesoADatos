@@ -1,11 +1,11 @@
 package com.docencia.model;
 
-import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 public class Hotel {
     
     @Id
+    @OneToMany
     @Column(name="id")
     private String id;
 
@@ -22,6 +23,8 @@ public class Hotel {
     @Column(name="address")
     private String address;
 
+
+
     public Hotel() {
     }
 
@@ -29,7 +32,7 @@ public class Hotel {
         this.id = id;
     }
 
-     public Hotel(String id, String name, String address, List<Room> rooms) {
+     public Hotel(String id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;

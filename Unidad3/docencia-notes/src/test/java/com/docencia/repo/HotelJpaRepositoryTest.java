@@ -1,7 +1,13 @@
 package com.docencia.repo;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
+
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,24 +17,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 import com.docencia.model.Hotel;
 import com.docencia.repo.jpa.HotelJpaRepository;
-import com.docencia.repo.jpa.IHotelJpaRepository;
 
-
+@SpringBootTest
+@ActiveProfiles("test")
 public class HotelJpaRepositoryTest {
 
-
     @Autowired
-    private HotelJpaRepository hotelRepository=new HotelJpaRepository(this.iHotelJpaRepository);
+    private HotelJpaRepository hotelRepository;
 
-    private IHotelJpaRepository iHotelJpaRepository;
+    private Hotel baseHotel;
 
-    private Hotel baseHotel; 
-    
     @BeforeEach
-    
     void beforeEach() {
         Hotel h = new Hotel();
         h.setName("Hotel prueba");
@@ -38,12 +39,13 @@ public class HotelJpaRepositoryTest {
 
         assertThat(baseHotel.getId()).isNotNull();
     }
-
-
-    
+    @AfterEach
+    void AfterEach(){
+        hotelRepository.delete(baseHotel.getId());
+    }
 
     @Test
-
+    @Transactional
     void testDelete() {
         String id = baseHotel.getId();
 
@@ -55,42 +57,64 @@ public class HotelJpaRepositoryTest {
     }
 
     @Test
-
-    void createReadFindByNameTest() {
+    @Transactional
+    void createReadFindByIdTest() {
         String id = baseHotel.getId();
 
-        Hotel leida = hotelRepository.findById(id);
-        assertThat(leida).isNotNull();
-        assertThat(leida.getName()).isEqualTo("Hotel prueba");
-        assertThat(leida.getAddress()).isEqualTo("direccion prueba");
+        Hotel hotelEncontrado = hotelRepository.findById(id);
+        assertThat(hotelEncontrado).isNotNull();
+        assertThat(hotelEncontrado.getName()).isEqualTo("Hotel prueba");
+        assertThat(hotelEncontrado.getAddress()).isEqualTo("direccion prueba");
 
-        Hotel buscadaPorNombre = hotelRepository.find(leida);
+        Hotel buscadaPorNombre = hotelRepository.find(hotelEncontrado);
         assertThat(buscadaPorNombre).isNotNull();
         assertThat(buscadaPorNombre.getId()).isEqualTo(id);
     }
 
     @Test
+    @Transactional
     void testExistsTest() {
-        assertEquals(hotelRepository, baseHotel);
+        assertTrue(hotelRepository.exists(baseHotel.getId()));
     }
 
     @Test
+    @Transactional
     void testFindTest() {
-
+        assertNotNull(hotelRepository.find(baseHotel));
     }
 
     @Test
+    @Transactional
     void testFindAll() {
-
+        List<Hotel>hoteles=hotelRepository.findAll();
+        assertEquals(hotelRepository.findAll(),hoteles);
     }
 
     @Test
+    @Transactional
     void testFindById() {
-
+        Hotel hotel=new Hotel(baseHotel.getId());
+        Hotel hotel2=hotelRepository.findById(baseHotel.getId());
+        assertTrue(hotel2.equals(hotel));
     }
 
     @Test
-    void testSave() {
-
+    @Transactional
+    void saveTest(){
+        Hotel hotel=new Hotel(baseHotel.getId(), "SaveNameTest", "AddressSaveTest");
+        hotel=hotelRepository.save(hotel);
+        assertTrue(baseHotel.equals(hotel));
+        assertNotEquals(baseHotel.getName(), hotel.getName());
+        assertNotEquals(baseHotel.getAddress(), hotel.getAddress());
     }
+
+    @Test
+    @Transactional
+    void saveTest2(){
+        Hotel hotel=new Hotel();
+        hotel=hotelRepository.save(hotel);
+        assertNotNull(hotel);
+        
+    }
+    
 }

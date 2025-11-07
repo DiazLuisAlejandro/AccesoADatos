@@ -67,4 +67,3 @@ public interface IRoomRepository {
      */
     boolean delete(String id);
 }
-

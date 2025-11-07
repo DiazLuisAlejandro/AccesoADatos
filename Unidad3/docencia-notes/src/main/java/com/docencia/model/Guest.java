@@ -5,6 +5,8 @@ import java.util.Objects;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
 
 @Entity
@@ -12,6 +14,7 @@ import jakarta.persistence.Table;
 public class Guest {
 
     @Id
+    @ManyToOne
     @Column(name = "id")
     private String  id;
 

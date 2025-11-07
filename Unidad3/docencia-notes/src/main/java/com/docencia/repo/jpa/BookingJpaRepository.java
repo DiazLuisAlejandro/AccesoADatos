@@ -5,17 +5,17 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
-import com.docencia.model.Hotel;
-import com.docencia.repo.IHotelRepository;
+import com.docencia.model.Booking;
+import com.docencia.repo.IBookingRepository;
 
 import jakarta.transaction.Transactional;
 
 @Repository
-public class HotelJpaRepository implements IHotelRepository{
+public class BookingJpaRepository implements IBookingRepository{
 
-    private final IHotelJpaRepository repository;
+    private final IBookingJpaRepository repository;
 
-    public HotelJpaRepository(IHotelJpaRepository repository) {
+    public BookingJpaRepository(IBookingJpaRepository repository) {
         this.repository = repository;
     }
 
@@ -26,28 +26,28 @@ public class HotelJpaRepository implements IHotelRepository{
     }
 
     @Override
-    public Hotel findById(String id) {
+    public Booking findById(String id) {
         return repository.findById(id).orElse(null);
 
     }
 
     @Override
-    public Hotel find(Hotel example) {
-        return repository.findFirstByName(example.getName()).orElse(null);
+    public Booking find(Booking example) {
+        return repository.findFirstByCheckIn(example.getCheckIn()).orElse(null);
     }
 
     @Override
-    public List<Hotel> findAll() {
+    public List<Booking> findAll() {
         return repository.findAll();
     }
 
     @Override
     @Transactional
-    public Hotel save(Hotel hotel) {
-        if(hotel.getId()==null|| hotel.getId().isBlank()){
-            hotel.setId(UUID.randomUUID().toString());
+    public Booking save(Booking booking) {
+        if(booking.getId()==null|| booking.getId().isBlank()){
+            booking.setId(UUID.randomUUID().toString());
         }
-        return repository.save(hotel);
+        return repository.save(booking);
     }
 
     @Override
@@ -60,6 +60,7 @@ public class HotelJpaRepository implements IHotelRepository{
         return true;
     }
 
+  
    
 
 }

@@ -8,7 +8,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,11 +25,11 @@ public class Booking {
     @Column(name="check_out")
     private LocalDate checkOut;
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name="guest_id")
     private String guestId;
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "room_id")
     private String roomId;
 
@@ -58,12 +58,13 @@ public class Booking {
         this.id = id;
     }
 
+    
     public LocalDate getCheckIn() {
         return checkIn;
     }
 
-    public void Date(String checkIn) {
-        this.checkIn = LocalDate.parse(checkIn,DateTimeFormatter.ofPattern("yyyy-dd-mm"));
+    public void setCheckIn(String checkIn) {
+        this.checkIn = LocalDate.parse(checkIn,DateTimeFormatter.ofPattern("yyyy-DD-mm"));
     }
 
     public LocalDate getCheckOut() {
@@ -71,7 +72,7 @@ public class Booking {
     }
 
     public void setCheckOut(String checkOut) {
-        this.checkOut = LocalDate.parse(checkOut,DateTimeFormatter.ofPattern("yyyy-dd-mm"));
+        this.checkOut = LocalDate.parse(checkOut,DateTimeFormatter.ofPattern("yyyy-DD-mm"));
     }
 
     public String getGuestId() {
