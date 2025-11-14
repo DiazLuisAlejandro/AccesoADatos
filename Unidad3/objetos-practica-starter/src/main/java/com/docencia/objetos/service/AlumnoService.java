@@ -1,7 +1,8 @@
 package com.docencia.objetos.service;
 
 import com.docencia.objetos.domain.Alumno;
-import com.docencia.objetos.repo.AlumnoRepository;
+import com.docencia.objetos.service.repo.AlumnoRepository;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;

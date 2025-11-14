@@ -1,4 +1,4 @@
-package com.docencia.objetos.repo;
+package com.docencia.objetos.service.repo;
 
 import com.docencia.objetos.domain.Alumno;
 import java.util.List;
@@ -9,6 +9,6 @@ public interface AlumnoRepository {
   Optional<Alumno> findById(Long id);
   Alumno save(Alumno alumno);
   boolean existsByEmail(String email);
-  void deleteById(Long id);
+  boolean deleteById(Long id);
   long count();
 }

@@ -1,7 +1,5 @@
-package com.docencia.objetos.repo.jpa;
+package com.docencia.objetos.service.repo.jpa;
 import java.util.Objects;
-
-import javax.annotation.processing.Generated;
 
 import jakarta.persistence.*;
 
@@ -23,6 +21,10 @@ public class AlumnoEntity {
   private String ciclo;
 
   public AlumnoEntity() {
+  }
+
+  public AlumnoEntity(Long id){
+    this.id=id;
   }
 
   public AlumnoEntity(Long id, String nombre, String email, String ciclo) {
