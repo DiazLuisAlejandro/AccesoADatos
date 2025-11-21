@@ -1,3 +1,6 @@
+/home/dam/Escritorio/AccesoADatos/Unidad3/crud-mongo/src/main/java/com/docencia/personas/services/IPersonaService.java
 /home/dam/Escritorio/AccesoADatos/Unidad3/crud-mongo/src/main/java/com/docencia/personas/model/Direccion.java
 /home/dam/Escritorio/AccesoADatos/Unidad3/crud-mongo/src/main/java/com/docencia/personas/model/Persona.java
 /home/dam/Escritorio/AccesoADatos/Unidad3/crud-mongo/src/main/java/com/docencia/personas/PersonasApplication.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/crud-mongo/src/main/java/com/docencia/personas/repository/PersonaRepository.java
+/home/dam/Escritorio/AccesoADatos/Unidad3/crud-mongo/src/main/java/com/docencia/personas/services/implementation/PersonaService.java
