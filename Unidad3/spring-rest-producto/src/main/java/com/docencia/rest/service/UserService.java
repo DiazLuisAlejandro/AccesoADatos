@@ -1,6 +1,5 @@
 package com.docencia.rest.service;
 
-import com.docencia.rest.repository.UserRepository;
 import com.docencia.rest.service.interfaces.UserServiceInterface;
 
 import java.util.List;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.docencia.rest.execption.ResourceNotFoundException;
 import com.docencia.rest.model.User;
+import com.docencia.rest.repository.interfaces.UserRepository;
 
 @Component
 public class UserService implements UserServiceInterface{
