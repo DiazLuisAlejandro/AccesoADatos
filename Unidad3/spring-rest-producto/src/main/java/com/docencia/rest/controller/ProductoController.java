@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import com.docencia.rest.domain.Producto;
 import com.docencia.rest.execption.ResourceNotFoundException;
-import com.docencia.rest.model.ProductoEntity;
 import com.docencia.rest.service.ProductoService;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -32,7 +32,7 @@ public class ProductoController {
 
     @Operation(summary = "Get all products")
     @GetMapping("/")
-    public List<ProductoEntity> getAllProducts() {
+    public List<Producto> getAllProducts() {
         return productoService.findAll();
     }
 
@@ -42,9 +42,9 @@ public class ProductoController {
             @ApiResponse(responseCode = "404", description = "Producto not found")
     })
     @GetMapping("/{id}")
-    public ResponseEntity<ProductoEntity> getProductoById(@PathVariable(value = "id") int productoId)
+    public ResponseEntity<Producto> getProductoById(@PathVariable(value = "id") int productoId)
             throws ResourceNotFoundException {
-        ProductoEntity producto = productoService.findById(productoId).orElse(null);
+        Producto producto = productoService.findById(productoId).orElse(null);
         if (producto == null) {
             return ResponseEntity.notFound().build();
         }
@@ -75,7 +75,7 @@ public class ProductoController {
             @ApiResponse(responseCode = "400", description = "Bad request")
     })
     @PostMapping("/add/user/")
-    public ProductoEntity createProducto(@Valid @RequestBody ProductoEntity producto) {
+    public Producto createProducto(@Valid @RequestBody Producto producto) {
         return productoService.save(producto);
     }
 }

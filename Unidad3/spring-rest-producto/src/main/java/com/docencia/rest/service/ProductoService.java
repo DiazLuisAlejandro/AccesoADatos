@@ -5,59 +5,109 @@ import com.docencia.rest.repository.interfaces.ProductoRepository;
 import com.docencia.rest.service.interfaces.ProductoServiceInterface;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.docencia.rest.domain.Producto;
+import com.docencia.rest.mappers.DetalleProductoMapper;
+import com.docencia.rest.mappers.ProductoMapper;
+import com.docencia.rest.model.DetalleProductoDocument;
 import com.docencia.rest.model.ProductoEntity;
 
 @Component
 public class ProductoService implements ProductoServiceInterface {
 
-    private ProductoRepository productoRepository;
+    final private ProductoRepository productoRepository;
 
-    private DetalleProductoRepository detalleProductoRepository;
+    final private DetalleProductoRepository detalleProductoRepository;
 
-    @Autowired
-    public void setProductoRepository(ProductoRepository productoRepository) {
+    final private ProductoMapper productoMapper;
+
+    final private DetalleProductoMapper detalleProductoMapper;
+
+    
+
+    public ProductoService(ProductoRepository productoRepository, DetalleProductoRepository detalleProductoRepository,
+            ProductoMapper productoMapper, DetalleProductoMapper detalleProductoMapper) {
         this.productoRepository = productoRepository;
+        this.detalleProductoRepository = detalleProductoRepository;
+        this.productoMapper = productoMapper;
+        this.detalleProductoMapper = detalleProductoMapper;
     }
 
     
-    public void setDetalleProductoDocument(DetalleProductoRepository detalleProductoRepository) {
-        this.detalleProductoRepository = detalleProductoRepository;
+    @Override
+    public List<Producto> findAll() {
+        List<ProductoEntity> entities = productoRepository.findAll();
+
+        return entities.stream()
+                .map(entity -> {
+                    DetalleProductoDocument detalleDoc = detalleProductoRepository.findByProductoId(entity.getId())
+                            .orElse(null);
+                    return productoMapper.toDomain(entity, detalleDoc);
+                })
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<ProductoEntity> findAll() {
-        return productoRepository.findAll();
-    }
-
-    @Override
-    public Optional<ProductoEntity> find(ProductoEntity producto) {
+    public Optional<Producto> find(Producto producto) {
+        if (producto == null) {
+            return Optional.empty();
+        }
         return findById(producto.getId());
     }
 
     @Override
-    public Optional<ProductoEntity> findById(int productoId) {
-        return productoRepository.findById(productoId);
+    public Optional<Producto> findById(int productoId) {
+        Optional<ProductoEntity> entityOpt = productoRepository.findById(productoId);
+        if (entityOpt.isEmpty()) {
+            return Optional.empty();
+        }
+
+        ProductoEntity entity = entityOpt.get();
+        DetalleProductoDocument detalleDoc = detalleProductoRepository.findByProductoId(productoId).orElse(null);
+
+        Producto producto = productoMapper.toDomain(entity, detalleDoc);
+        return Optional.of(producto);
     }
 
     @Override
-    public boolean deleteProducto(ProductoEntity producto) {
-        productoRepository.delete(producto);
+    public boolean deleteProducto(Producto producto) {
+        if (producto == null) {
+            return false;
+        }
+        int id = producto.getId();
+        if (!productoRepository.existsById(id)) {
+            return false;
+        }
+
+        productoRepository.deleteById(id);
+        detalleProductoRepository.deleteByProductoId(id);
+
         return true;
     }
 
     @Override
     public boolean deleteById(int id) {
-        ProductoEntity producto = new ProductoEntity(id);
+        Producto producto = new Producto(id);
         return deleteProducto(producto);
     }
 
     @Override
-    public ProductoEntity save(ProductoEntity producto) {
-        return productoRepository.save(producto);
+    public Producto save(Producto producto) {
+        ProductoEntity entityToSave = productoMapper.toEntity(producto);
+        entityToSave = productoRepository.save(entityToSave);
+        if (producto.getDetalleProducto() == null) {
+            return productoMapper.toDomain(entityToSave);
+        }
+        DetalleProductoDocument detalleDoc = detalleProductoMapper.toDocument(producto.getDetalleProducto());
+        detalleDoc.setProductoId(entityToSave.getId());
+        detalleProductoRepository.save(detalleDoc);
+
+        return productoMapper.toDomain(entityToSave, detalleDoc);
+
     }
 
 }

@@ -7,7 +7,7 @@ import java.util.Objects;
 public class DetalleProducto {
 
     private String id;
-    private Long productoId;
+    private int productoId;
     private String descripcionLarga;
     private Map<String, String> especificacionesTecnicas;
     private List<String> tags;
@@ -19,7 +19,7 @@ public class DetalleProducto {
         this.id = id;
     }
 
-    public DetalleProducto(String id, Long productoId, String descripcionLarga,
+    public DetalleProducto(String id, int productoId, String descripcionLarga,
             Map<String, String> especificacionesTecnicas, List<String> tags) {
         this.id = id;
         this.productoId = productoId;
@@ -36,11 +36,11 @@ public class DetalleProducto {
         this.id = id;
     }
 
-    public Long getProductoId() {
+    public int getProductoId() {
         return productoId;
     }
 
-    public void setProductoId(Long productoId) {
+    public void setProductoId(int productoId) {
         this.productoId = productoId;
     }
 

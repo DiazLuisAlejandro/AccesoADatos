@@ -13,13 +13,17 @@ public class Producto {
 
     private int Stock;
 
+    private DetalleProducto detalleProducto;
+
     public Producto() {
     }
 
-    public Producto(String nombre, BigDecimal precio, int stock) {
+    public Producto(int id,String nombre, BigDecimal precio, int stock, DetalleProducto detalleProducto) {
+        this.id=id;
         this.nombre = nombre;
         this.precio = precio;
-        Stock = stock;
+        this.Stock = stock;
+        this.detalleProducto=detalleProducto;
     }
 
     public Producto(int id) {
@@ -44,6 +48,14 @@ public class Producto {
 
     public BigDecimal getPrecio() {
         return precio;
+    }
+
+    public DetalleProducto getDetalleProducto() {
+        return detalleProducto;
+    }
+
+    public void setDetalleProducto(DetalleProducto detalleProducto) {
+        this.detalleProducto = detalleProducto;
     }
 
     public void setPrecio(BigDecimal precio) {
