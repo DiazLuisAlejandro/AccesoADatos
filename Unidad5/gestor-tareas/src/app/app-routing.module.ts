@@ -1,0 +1,1 @@
+{ path: 'login', component: LoginComponent }
